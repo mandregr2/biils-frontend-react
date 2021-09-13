@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from '@material-ui/core/Container';
+
+import Routes from './components/Routes';
+import VaccinationForm from './components/Vaccination';
+import Footer from './components/Footer';
+import Welcome from './components/Welcome';
+import Login from './components/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container component="main" maxWidth="xs">
+      <Routes/>
+      </Container>
   );
 }
 
