@@ -12,7 +12,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Bills
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+    
+    
   },
   main: {
     marginTop: theme.spacing(8),
@@ -60,7 +62,7 @@ export default function Welcome() {
       </Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">Desenvolvido por Mário André Rodriguez.</Typography>
+          <Typography variant="body2">Desenvolvido por Mário André Rodriguez.</Typography>
           <Copyright />
         </Container>
       </footer>

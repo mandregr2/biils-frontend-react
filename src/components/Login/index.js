@@ -1,29 +1,34 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
+import {Route} from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
 import {
   Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Grid,
 } from '@material-ui/core';
 
-const vaccinationSchema = yup.object({
+import Home from '../Home/index';
+
+
+const loginSchema = yup.object({
   login: yup
     .string('Informe seu nome')
-    .min(5, 'O nome deve conter, no mínimo, 5 caracteres')
+    .min(3, 'O nome deve conter, no mínimo, 3 caracteres')
     .required('O campo de nome é obrigatório'),
   password: yup
-    .string('Informe seu N⁰ do CADSUS')
-    .min(5, 'O N⁰ do CADSUS deve conter, no mínimo, 5 caracteres')
-    .required('O campo de N⁰ do CADSUS é obrigatório'),
+    .string('Informe sua senha')
+    .min(6, 'A senha deve ter no mínimo 5 caracteres')
+    .required('A senha é obrigatória'),
  
 });
 
-const VaccinationForm = () => {
+const LoginForm = () => {
   const submitForm = async (values) => {
     try {
       const res = await axios.post('http://localhost:3030/login', values);
       alert('Formulário enviado com sucesso!');
       console.log(res.data);
+      <Route path="/" exact component={Home} />
     } catch (err) {
       console.error(err);
     }
@@ -38,7 +43,7 @@ const VaccinationForm = () => {
 
     <Formik
       initialValues={initialValues}
-      validationSchema={vaccinationSchema}
+      validationSchema={loginSchema}
       onSubmit={(values) => submitForm(values)}
     >
       {({
@@ -86,4 +91,4 @@ const VaccinationForm = () => {
   );
 };
 
-export default VaccinationForm;
+export default LoginForm;
