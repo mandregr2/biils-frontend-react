@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router'
 import { Formik, Form } from 'formik';
 import {Route} from 'react-router-dom';
 import * as yup from 'yup';
@@ -26,16 +27,15 @@ const LoginForm = () => {
   const submitForm = async (values) => {
     try {
       const res = await axios.post('http://localhost:3030/login', values);
-      alert('Formulário enviado com sucesso!');
       console.log(res.data);
-      <Route path="/" exact component={Home} />
-    } catch (err) {
+      window.location = "/Home"; 
+      } catch (err) {
       console.error(err);
     }
   };
 
   const initialValues = {
-    login: 'admin@admin.com',
+    login: 'andre@andre',
     password: '123456',
   };
 
